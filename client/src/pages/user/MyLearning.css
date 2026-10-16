@@ -1,0 +1,282 @@
+.my-learning-page {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
+}
+
+
+/* ==============================
+   HEADER
+============================== */
+
+.my-learning-header {
+  margin-bottom: 3rem;
+}
+
+.my-learning-header span {
+  display: inline-block;
+  margin-bottom: 0.7rem;
+  color: #4f46e5;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.my-learning-header h1 {
+  max-width: 700px;
+  margin: 0;
+  color: #111827;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}
+
+.my-learning-header p {
+  max-width: 650px;
+  margin-top: 1rem;
+  color: #64748b;
+  line-height: 1.7;
+}
+
+
+/* ==============================
+   TOP
+============================== */
+
+.my-courses-section {
+  margin-top: 2rem;
+}
+
+.my-courses-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.my-courses-top h2 {
+  margin: 0;
+  color: #111827;
+  font-size: 1.5rem;
+}
+
+.my-courses-top span {
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+
+/* ==============================
+   GRID
+============================== */
+
+.my-courses-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+
+/* ==============================
+   CARD
+============================== */
+
+.my-course-card {
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow:
+    0 8px 25px rgba(15, 23, 42, 0.05);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.my-course-card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 15px 35px rgba(15, 23, 42, 0.1);
+}
+
+.my-course-accent {
+  height: 6px;
+}
+
+.my-course-content {
+  padding: 1.4rem;
+}
+
+
+/* ==============================
+   COURSE INFO
+============================== */
+
+.my-course-category {
+  display: inline-block;
+  margin-bottom: 0.7rem;
+  color: #4f46e5;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.my-course-content h3 {
+  margin: 0;
+  color: #111827;
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+.my-course-instructor {
+  margin: 0.6rem 0;
+  color: #64748b;
+  font-size: 0.82rem;
+}
+
+.my-course-meta {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+  color: #64748b;
+  font-size: 0.78rem;
+}
+
+
+/* ==============================
+   PROGRESS
+============================== */
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  color: #64748b;
+  font-size: 0.78rem;
+}
+
+.progress-info strong {
+  color: #111827;
+}
+
+.progress-bar {
+  height: 7px;
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+  border-radius: 999px;
+  background: #e5e7eb;
+}
+
+.progress-value {
+  height: 100%;
+  border-radius: inherit;
+}
+
+
+/* ==============================
+   BUTTON
+============================== */
+
+.continue-btn {
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: 9px;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition: opacity 0.2s ease;
+}
+
+.continue-btn:hover {
+  opacity: 0.88;
+}
+
+
+/* ==============================
+   EMPTY
+============================== */
+
+.empty-learning {
+  padding: 4rem 2rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.empty-icon {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+.empty-learning h2 {
+  margin: 0;
+  color: #111827;
+}
+
+.empty-learning p {
+  margin: 0.6rem 0 1.5rem;
+  color: #64748b;
+}
+
+.browse-courses-btn {
+  display: inline-block;
+  padding: 0.8rem 1.2rem;
+  border-radius: 9px;
+  background: #4f46e5;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+
+/* ==============================
+   LOADING / ERROR
+============================== */
+
+.my-learning-loading,
+.my-learning-error {
+  padding: 3rem;
+  text-align: center;
+}
+
+.my-learning-error {
+  border-radius: 12px;
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+
+/* ==============================
+   TABLET
+============================== */
+
+@media (max-width: 900px) {
+  .my-courses-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media (max-width: 600px) {
+  .my-learning-page {
+    padding: 3rem 1rem 4rem;
+  }
+
+  .my-courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .my-courses-top {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

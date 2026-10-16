@@ -1,0 +1,133 @@
+
+/* =========================================
+   ADMIN LAYOUT — MODERN INDIGO THEME
+========================================= */
+
+:root {
+  --admin-primary: #4f46e5;
+  --admin-primary-dark: #4338ca;
+  --admin-primary-light: #eef2ff;
+
+  --admin-bg: #f8fafc;
+  --admin-surface: #ffffff;
+
+  --admin-text: #111827;
+  --admin-muted: #64748b;
+  --admin-border: #e2e8f0;
+
+  --admin-radius: 16px;
+
+  --admin-shadow:
+    0 4px 16px rgba(15, 23, 42, 0.04);
+
+  --admin-shadow-hover:
+    0 12px 28px rgba(79, 70, 229, 0.10);
+}
+
+/* Reset layout sizing */
+.admin-layout,
+.admin-layout * {
+  box-sizing: border-box;
+}
+
+.admin-layout {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  background:
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(79, 70, 229, 0.045),
+      transparent 30%
+    ),
+    var(--admin-bg);
+
+  color: var(--admin-text);
+}
+
+/* Main layout wrapper */
+.admin-layout-content {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Main content area */
+.admin-main {
+  flex: 1;
+
+  width: 100%;
+  min-width: 0;
+
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+
+  animation: adminPageEnter 0.45s ease both;
+}
+
+/* Page entrance animation */
+@keyframes adminPageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Consistent text selection */
+.admin-layout ::selection {
+  background: #c7d2fe;
+  color: #312e81;
+}
+
+/* Consistent keyboard focus */
+.admin-layout button:focus-visible,
+.admin-layout a:focus-visible,
+.admin-layout input:focus-visible,
+.admin-layout select:focus-visible,
+.admin-layout textarea:focus-visible {
+  outline: 3px solid rgba(79, 70, 229, 0.3);
+  outline-offset: 3px;
+}
+
+/* Common interactive animation */
+.admin-layout button,
+.admin-layout a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Responsive tablet layout */
+@media (max-width: 900px) {
+  .admin-main {
+    padding: 1.35rem;
+  }
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+  .admin-main {
+    padding: 1rem 0.85rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+  .admin-main {
+    padding: 0.85rem 0.65rem;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .admin-main {
+    animation: none !important;
+  }
+}

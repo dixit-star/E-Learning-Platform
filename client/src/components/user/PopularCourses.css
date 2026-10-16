@@ -1,0 +1,304 @@
+
+/* ==========================================
+   POPULAR COURSES
+   Premium Indigo + White Theme
+========================================== */
+
+.popular-courses {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: clamp(3.5rem, 7vw, 6rem) clamp(1rem, 3vw, 1.5rem);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.popular-courses *,
+.popular-courses *::before,
+.popular-courses *::after {
+  box-sizing: border-box;
+}
+
+/* Background glow */
+
+.popular-courses::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 5rem;
+  left: -10rem;
+  width: clamp(16rem, 30vw, 24rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.09),
+    rgba(129, 140, 248, 0.035) 45%,
+    transparent 70%
+  );
+  pointer-events: none;
+  animation: coursesAmbient 12s ease-in-out infinite alternate;
+}
+
+/* ==========================================
+   SECTION HEADING
+========================================== */
+
+.section-heading {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  animation: coursesFadeUp 0.7s ease-out both;
+}
+
+.section-heading > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  color: #4f46e5;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.section-heading > span::before,
+.section-heading > span::after {
+  content: "";
+  width: 1.4rem;
+  height: 2px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #a5b4fc, #4f46e5);
+}
+
+.section-heading h2 {
+  margin: 0.8rem 0 0.85rem;
+  color: #111827;
+  font-size: clamp(2rem, 4.5vw, 3.15rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+
+.section-heading p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #64748b;
+  font-size: clamp(0.88rem, 1.5vw, 0.98rem);
+  line-height: 1.8;
+  text-wrap: pretty;
+}
+
+/* ==========================================
+   COURSES GRID
+========================================== */
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* ==========================================
+   COURSE CARD ANIMATIONS
+   Compatible with existing CourseCard
+========================================== */
+
+.courses-grid > * {
+  min-width: 0;
+  animation: courseCardReveal 0.65s ease-out both;
+}
+
+.courses-grid > *:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.courses-grid > *:nth-child(3) {
+  animation-delay: 0.16s;
+}
+
+.courses-grid > *:nth-child(4) {
+  animation-delay: 0.24s;
+}
+
+.courses-grid > *:nth-child(n + 5) {
+  animation-delay: 0.1s;
+}
+
+/* Works with common course-card wrappers */
+
+.courses-grid > *:hover {
+  z-index: 2;
+}
+
+/* Smooth images without changing their dimensions */
+
+.courses-grid img {
+  max-width: 100%;
+}
+
+/* ==========================================
+   KEYFRAME ANIMATIONS
+========================================== */
+
+@keyframes coursesFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes courseCardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes coursesAmbient {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(18px, 16px, 0);
+  }
+}
+
+/* ==========================================
+   LARGE LCD / WIDE DESKTOP
+========================================== */
+
+@media (min-width: 1440px) {
+  .popular-courses {
+    max-width: 1360px;
+    padding-inline: 2rem;
+  }
+
+  .courses-grid {
+    gap: 1.6rem;
+  }
+
+  .section-heading {
+    margin-bottom: 3.5rem;
+  }
+}
+
+/* ==========================================
+   LAPTOP
+========================================== */
+
+@media (min-width: 769px) and (max-width: 1100px) {
+  .courses-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.1rem;
+  }
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (min-width: 601px) and (max-width: 768px) {
+  .popular-courses {
+    padding: 4rem 1.25rem;
+  }
+
+  .courses-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .section-heading {
+    margin-bottom: 2.25rem;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+  .popular-courses {
+    padding: 3.5rem 1rem;
+  }
+
+  .section-heading {
+    margin-bottom: 2rem;
+  }
+
+  .section-heading > span {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(1.8rem, 7vw, 2.35rem);
+    margin-top: 0.7rem;
+  }
+
+  .section-heading p {
+    font-size: 0.88rem;
+    line-height: 1.75;
+  }
+
+  .courses-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 380px) {
+  .popular-courses {
+    padding-inline: 0.8rem;
+  }
+
+  .courses-grid {
+    gap: 0.7rem;
+  }
+
+  .section-heading > span::before,
+  .section-heading > span::after {
+    width: 1rem;
+  }
+
+  .section-heading h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .popular-courses::before,
+  .section-heading,
+  .courses-grid > * {
+    animation: none !important;
+  }
+
+  .courses-grid > * {
+    transition: none !important;
+  }
+}

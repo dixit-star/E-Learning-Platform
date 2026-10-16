@@ -1,0 +1,647 @@
+
+/* ==========================================
+   TOP INSTRUCTORS
+   Premium Indigo + White Theme
+========================================== */
+
+.instructors-section {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: clamp(3.5rem, 7vw, 6rem) clamp(1rem, 3vw, 1.5rem);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.instructors-section *,
+.instructors-section *::before,
+.instructors-section *::after {
+  box-sizing: border-box;
+}
+
+/* Soft background glow */
+
+.instructors-section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 2rem;
+  right: -9rem;
+  width: clamp(16rem, 30vw, 24rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.10),
+    rgba(129, 140, 248, 0.035) 45%,
+    transparent 70%
+  );
+  pointer-events: none;
+  animation: instructorGlow 12s ease-in-out infinite alternate;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.instructors-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: clamp(2rem, 4vw, 2.8rem);
+  animation: instructorFadeUp 0.7s ease-out both;
+}
+
+.instructors-header .section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #4f46e5;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.instructors-header .section-label::before {
+  content: "";
+  width: 1.5rem;
+  height: 2px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #4f46e5, #a5b4fc);
+}
+
+.instructors-header h2 {
+  margin: 0.65rem 0 0.7rem;
+  color: #111827;
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.instructors-header p {
+  max-width: 38rem;
+  margin: 0;
+  color: #64748b;
+  font-size: clamp(0.86rem, 1.5vw, 0.95rem);
+  line-height: 1.75;
+}
+
+/* ==========================================
+   VIEW ALL BUTTON
+========================================== */
+
+.instructors-view-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  flex-shrink: 0;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid #e0e7ff;
+  border-radius: 0.85rem;
+  background: #ffffff;
+  color: #4338ca;
+  font-family: inherit;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.04);
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.instructors-view-btn:hover {
+  transform: translateY(-3px);
+  border-color: #4f46e5;
+  background: #4f46e5;
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(79, 70, 229, 0.2);
+}
+
+.instructors-view-btn:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================
+   INSTRUCTORS GRID
+========================================== */
+
+.instructors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: clamp(1rem, 2vw, 1.4rem);
+}
+
+/* ==========================================
+   INSTRUCTOR CARD
+========================================== */
+
+.instructor-card {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(1.2rem, 2.5vw, 1.6rem);
+  overflow: hidden;
+  border: 1px solid #e8eaf4;
+  border-radius: 1.25rem;
+  background: #ffffff;
+
+  box-shadow:
+    0 2px 5px rgba(15, 23, 42, 0.015),
+    0 8px 24px rgba(15, 23, 42, 0.035);
+
+  transition:
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.35s ease,
+    box-shadow 0.4s ease;
+
+  animation: instructorFadeUp 0.65s ease-out both;
+}
+
+.instructor-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.instructor-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.instructor-card:nth-child(n + 4) {
+  animation-delay: 0.1s;
+}
+
+/* Hover background */
+
+.instructor-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(
+    145deg,
+    #f1f3ff 0%,
+    #ffffff 55%,
+    #f8faff 100%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+/* Decorative corner */
+
+.instructor-card::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -3rem;
+  bottom: -3rem;
+  width: 8rem;
+  aspect-ratio: 1;
+  border: 1px solid rgba(99, 102, 241, 0.08);
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.035);
+  transition:
+    transform 0.45s ease,
+    background 0.35s ease;
+  pointer-events: none;
+}
+
+.instructor-card:hover {
+  transform: translateY(-7px);
+  border-color: #c7d2fe;
+
+  box-shadow:
+    0 5px 12px rgba(79, 70, 229, 0.035),
+    0 20px 40px rgba(79, 70, 229, 0.09);
+}
+
+.instructor-card:hover::before {
+  opacity: 1;
+}
+
+.instructor-card:hover::after {
+  transform: scale(1.35);
+  background: rgba(99, 102, 241, 0.075);
+}
+
+/* ==========================================
+   INSTRUCTOR AVATAR
+========================================== */
+
+.instructor-avatar {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 1.2rem;
+  border: 2px solid
+    color-mix(in srgb, var(--accent, #4f46e5) 25%, white);
+  border-radius: 50%;
+
+  background: color-mix(
+    in srgb,
+    var(--accent, #4f46e5) 12%,
+    white
+  );
+
+  color: var(--accent, #4f46e5);
+  font-size: 1.4rem;
+  font-weight: 800;
+
+  box-shadow:
+    0 0 0 5px color-mix(
+      in srgb,
+      var(--accent, #4f46e5) 6%,
+      white
+    );
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.instructor-card:hover .instructor-avatar {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow:
+    0 0 0 7px color-mix(
+      in srgb,
+      var(--accent, #4f46e5) 9%,
+      white
+    ),
+    0 8px 18px rgba(79, 70, 229, 0.10);
+}
+
+/* ==========================================
+   INSTRUCTOR INFORMATION
+========================================== */
+
+.instructor-info {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.instructor-info h3 {
+  margin: 0;
+  color: #1e293b;
+  font-size: clamp(0.98rem, 1.4vw, 1.08rem);
+  font-weight: 750;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  overflow-wrap: anywhere;
+  transition: color 0.3s ease;
+}
+
+.instructor-card:hover .instructor-info h3 {
+  color: #4338ca;
+}
+
+.instructor-category {
+  margin: 0.4rem 0 0.8rem;
+  color: #64748b;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   RATING
+========================================== */
+
+.instructor-rating {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.2rem;
+}
+
+.instructor-rating span {
+  color: #b8860b;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
+
+.instructor-rating strong {
+  color: #334155;
+  font-size: 0.84rem;
+  font-weight: 750;
+}
+
+.instructor-rating small {
+  color: #94a3b8;
+  font-size: 0.75rem;
+}
+
+/* ==========================================
+   FEATURED COURSE
+========================================== */
+
+.instructor-course {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  padding-top: 1.2rem;
+  margin-top: 1.4rem;
+  border-top: 1px solid #eef2f7;
+}
+
+.instructor-course span {
+  display: inline-block;
+  color: #818cf8;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.instructor-course p {
+  margin: 0.45rem 0 0;
+  color: #475569;
+  font-size: 0.84rem;
+  font-weight: 550;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+  transition: color 0.3s ease;
+}
+
+.instructor-card:hover .instructor-course p {
+  color: #3730a3;
+}
+
+/* ==========================================
+   LARGE LCD / WIDE DESKTOP
+========================================== */
+
+@media (min-width: 1440px) {
+  .instructors-section {
+    max-width: 1360px;
+    padding-inline: 2rem;
+  }
+
+  .instructors-grid {
+    gap: 1.5rem;
+  }
+
+  .instructor-card {
+    padding: 1.8rem;
+    border-radius: 1.35rem;
+  }
+
+  .instructor-avatar {
+    width: 4.3rem;
+    height: 4.3rem;
+  }
+
+  .instructor-info h3 {
+    font-size: 1.12rem;
+  }
+
+  .instructor-category,
+  .instructor-course p {
+    font-size: 0.88rem;
+  }
+}
+
+/* ==========================================
+   LAPTOP
+========================================== */
+
+@media (min-width: 769px) and (max-width: 1050px) {
+  .instructors-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+
+  .instructor-card {
+    padding: 1.1rem;
+  }
+
+  .instructor-avatar {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .instructor-info h3 {
+    font-size: 0.96rem;
+  }
+
+  .instructor-category,
+  .instructor-course p {
+    font-size: 0.78rem;
+  }
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 768px) {
+  .instructors-section {
+    padding-block: 4rem;
+  }
+
+  .instructors-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .instructor-card {
+    padding: 1.25rem;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+  .instructors-section {
+    padding: 3.5rem 1rem;
+  }
+
+  .instructors-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .instructors-header h2 {
+    font-size: clamp(1.8rem, 7vw, 2.3rem);
+  }
+
+  .instructors-header p {
+    font-size: 0.88rem;
+    line-height: 1.75;
+  }
+
+  .instructors-view-btn {
+    width: 100%;
+    padding: 0.85rem 1rem;
+  }
+
+  .instructors-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+  }
+
+  .instructor-card {
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  .instructor-avatar {
+    width: 3.2rem;
+    height: 3.2rem;
+    margin-bottom: 1rem;
+    font-size: 1.15rem;
+  }
+
+  .instructor-info h3 {
+    font-size: 0.9rem;
+  }
+
+  .instructor-category {
+    font-size: 0.76rem;
+  }
+
+  .instructor-rating {
+    gap: 0.3rem;
+  }
+
+  .instructor-rating span {
+    font-size: 0.8rem;
+  }
+
+  .instructor-rating strong {
+    font-size: 0.78rem;
+  }
+
+  .instructor-rating small {
+    font-size: 0.7rem;
+  }
+
+  .instructor-course {
+    padding-top: 0.9rem;
+  }
+
+  .instructor-course p {
+    font-size: 0.77rem;
+  }
+
+  .instructor-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* ==========================================
+   EXTRA SMALL MOBILE
+========================================== */
+
+@media (max-width: 360px) {
+  .instructors-section {
+    padding-inline: 0.8rem;
+  }
+
+  .instructors-grid {
+    gap: 0.65rem;
+  }
+
+  .instructor-card {
+    padding: 0.8rem;
+  }
+
+  .instructor-avatar {
+    width: 2.8rem;
+    height: 2.8rem;
+    font-size: 1rem;
+  }
+
+  .instructor-info h3 {
+    font-size: 0.84rem;
+  }
+
+  .instructor-category,
+  .instructor-course p {
+    font-size: 0.73rem;
+  }
+}
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+@keyframes instructorFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes instructorGlow {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-18px, 16px, 0);
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+.instructors-view-btn:focus-visible {
+  outline: 3px solid rgba(99, 102, 241, 0.45);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .instructors-section::before,
+  .instructors-header,
+  .instructor-card {
+    animation: none !important;
+  }
+
+  .instructor-card,
+  .instructor-card::before,
+  .instructor-card::after,
+  .instructor-avatar,
+  .instructor-info h3,
+  .instructor-course p,
+  .instructors-view-btn {
+    transition: none !important;
+  }
+
+  .instructor-card:hover,
+  .instructor-card:hover .instructor-avatar {
+    transform: none;
+  }
+}
