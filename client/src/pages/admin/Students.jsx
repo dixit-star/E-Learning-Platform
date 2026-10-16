@@ -1,6 +1,6 @@
 
 import { useEffect, useMemo, useState } from "react";
-import "./students.css";
+import "../students.css";
 
 const API_URL = "http://localhost/server/api/admin/students.php";
 
